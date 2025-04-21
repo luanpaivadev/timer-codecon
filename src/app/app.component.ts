@@ -51,16 +51,14 @@ export class AppComponent {
       this.minutos = this.validarTamanho(this.timer.minutes().toString());
       this.segundos = this.validarTamanho(this.timer.seconds().toString());
 
-      if (this.timer.hours() == 0 && this.timer.minutes() == 0
-        && (this.timer.seconds() >= 1 && this.timer.seconds() <= 10)) {
+      if (this.timer.asSeconds() <= 10) {
         this.contagemRegressiva = true;
         const somContagemRegressiva = new Audio('/asset_sound_tick-tack.wav');
         somContagemRegressiva.load();
         somContagemRegressiva.play();
       }
 
-      if (this.timer.hours() == 0 && this.timer.minutes() == 0
-        && this.timer.seconds() == 0) {
+      if (this.timer.asSeconds() === 0) {
         this.pause();
         this.fimDoTempo = true;
         this.tocarAlarme();
