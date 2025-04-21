@@ -56,7 +56,7 @@ export class AppComponent {
         const somContagemRegressiva = new Audio('/asset_sound_tick-tack.wav');
         somContagemRegressiva.load();
         somContagemRegressiva.play();
-        
+
         if (this.timer.asSeconds() === 0) {
           this.pause();
           this.fimDoTempo = true;
@@ -64,7 +64,6 @@ export class AppComponent {
           this.reload();
         }
       }
-
 
     }, 1000);
   }
