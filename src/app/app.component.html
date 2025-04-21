@@ -24,11 +24,11 @@
     <div class="d-flex align-items-center justify-content-center gap-5">
       @if (!camposEditaveis) {
       @if (!fullscreen) {
-      <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Ativar tela cheia">
+      <button class="rounded-circle display-none" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Ativar tela cheia">
         <img src="/full-screen.svg" alt="" width="20px" height="20px">
       </button>
       } @else {
-      <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Sair da tela cheia">
+      <button class="rounded-circle display-none" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Sair da tela cheia">
         <img src="exit-full-screen 1.svg" alt="" width="20px" height="20px">
       </button>
       }
