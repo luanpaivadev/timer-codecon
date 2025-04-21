@@ -54,6 +54,9 @@ export class AppComponent {
       if (this.timer.hours() == 0 && this.timer.minutes() == 0
         && (this.timer.seconds() >= 1 && this.timer.seconds() <= 10)) {
         this.contagemRegressiva = true;
+        const somContagemRegressiva = new Audio('/asset_sound_tick-tack.wav');
+        somContagemRegressiva.load();
+        somContagemRegressiva.play();
       }
 
       if (this.timer.hours() == 0 && this.timer.minutes() == 0
@@ -121,7 +124,7 @@ export class AppComponent {
   }
 
   private tocarAlarme() {
-    const audio = new Audio('/alarme.mp3');
+    const audio = new Audio('/asset_sound_stop.mp3');
     audio.load();
     audio.play();
   }
