@@ -1,61 +1,63 @@
 <main [ngClass]="{'fim-tempo': fimDoTempo}">
-  @if (!contagemRegressiva) {
-  <div class="d-flex align-items-center justify-content-center gap-2">
-    <div class="row">
-      <div class="col-auto p-0">
-        <input class="h-100" #inputHoras type="text" [(ngModel)]="horas" maxlength="2" [disabled]="!camposEditaveis">
-      </div>
-      <div class="col-auto p-0">
-        <span>:</span>
-      </div>
-      <div class="col-auto p-0">
-        <input class="h-100" type="text" [(ngModel)]="minutos" maxlength="2" [disabled]="!camposEditaveis">
-      </div>
-      <div class="col-auto p-0">
-        <span>:</span>
-      </div>
-      <div class="col-auto p-0">
-        <input class="h-100" type="text" [(ngModel)]="segundos" maxlength="2" [disabled]="!camposEditaveis">
+  <div class="container">
+    @if (!contagemRegressiva) {
+    <div class="d-flex align-items-center justify-content-center gap-2">
+      <div class="row p-0 w-100">
+        <div class="col p-0">
+          <input #inputHoras type="text" [(ngModel)]="horas" maxlength="2" [disabled]="!camposEditaveis">
+        </div>
+        <div class="col-auto p-0">
+          <span>:</span>
+        </div>
+        <div class="col p-0">
+          <input type="text" [(ngModel)]="minutos" maxlength="2" [disabled]="!camposEditaveis">
+        </div>
+        <div class="col-auto p-0">
+          <span>:</span>
+        </div>
+        <div class="col p-0">
+          <input type="text" [(ngModel)]="segundos" maxlength="2" [disabled]="!camposEditaveis">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="d-flex align-items-center justify-content-center gap-5">
-    @if (!camposEditaveis) {
+    <div class="d-flex align-items-center justify-content-center gap-5">
+      @if (!camposEditaveis) {
       @if (!fullscreen) {
-        <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Ativar tela cheia">
-          <img src="/full-screen.svg" alt="" width="20px" height="20px">
-        </button>
+      <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Ativar tela cheia">
+        <img src="/full-screen.svg" alt="" width="20px" height="20px">
+      </button>
       } @else {
-        <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Sair da tela cheia">
-          <img src="exit-full-screen 1.svg" alt="" width="20px" height="20px">
-        </button>
+      <button class="rounded-circle" mat-mini-fab (click)="toggleFullscreen()" matTooltip="Sair da tela cheia">
+        <img src="exit-full-screen 1.svg" alt="" width="20px" height="20px">
+      </button>
       }
-    <button class="rounded-circle" mat-mini-fab (click)="edit()" matTooltip="Editar Temporizador">
-      <img src="/edit.svg" alt="" width="20px" height="20px">
-    </button>
-    <button class="rounded-circle" mat-mini-fab (click)="reset()" matTooltip="Resetar Temporizador">
-      <img src="/reset.svg" alt="" width="20px" height="20px">
-    </button>
-    @if(this.tempoIniciado) {
-    <button class="rounded-circle" mat-mini-fab (click)="pause()" matTooltip="Pausar Temporizador">
-      <img src="/pause.svg" alt="" width="20px" height="20px">
-    </button>
+      <button class="rounded-circle" mat-mini-fab (click)="edit()" matTooltip="Editar Temporizador">
+        <img src="/edit.svg" alt="" width="20px" height="20px">
+      </button>
+      <button class="rounded-circle" mat-mini-fab (click)="reset()" matTooltip="Resetar Temporizador">
+        <img src="/reset.svg" alt="" width="20px" height="20px">
+      </button>
+      @if(this.tempoIniciado) {
+      <button class="rounded-circle" mat-mini-fab (click)="pause()" matTooltip="Pausar Temporizador">
+        <img src="/pause.svg" alt="" width="20px" height="20px">
+      </button>
+      } @else {
+      <button class="rounded-circle" mat-mini-fab (click)="play()" matTooltip="Iniciar Temporizador">
+        <img src="/play.svg" alt="" width="20px" height="20px">
+      </button>
+      }
+      } @else {
+      <button class="rounded-circle" mat-mini-fab (click)="cancel()" matTooltip="Cancelar Edição">
+        <img src="/cancel.svg" alt="" width="20px" height="20px">
+      </button>
+      <button class="rounded-circle" mat-mini-fab (click)="approve()" matTooltip="Confirmar Edição">
+        <img src="/approve.svg" alt="" width="20px" height="20px">
+      </button>
+      }
+    </div>
     } @else {
-    <button class="rounded-circle" mat-mini-fab (click)="play()" matTooltip="Iniciar Temporizador">
-      <img src="/play.svg" alt="" width="20px" height="20px">
-    </button>
-    }
-    } @else {
-    <button class="rounded-circle" mat-mini-fab (click)="cancel()" matTooltip="Cancelar Edição">
-      <img src="/cancel.svg" alt="" width="20px" height="20px">
-    </button>
-    <button class="rounded-circle" mat-mini-fab (click)="approve()" matTooltip="Confirmar Edição">
-      <img src="/approve.svg" alt="" width="20px" height="20px">
-    </button>
+    <span class="contagem-regressiva">{{ ajustarContagemRegressiva(segundos) }}</span>
     }
   </div>
-  } @else {
-  <span class="contagem-regressiva">{{ ajustarContagemRegressiva(segundos) }}</span>
-  }
 </main>
