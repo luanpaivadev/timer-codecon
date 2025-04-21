@@ -4,19 +4,19 @@
     <div class="d-flex align-items-center justify-content-center gap-2">
       <div class="row p-0 w-100">
         <div class="col p-0">
-          <input #inputHoras type="text" [(ngModel)]="horas" maxlength="2" [disabled]="!camposEditaveis">
+          <input #inputHoras type="text" [(ngModel)]="horas" maxlength="2" [readonly]="!camposEditaveis">
         </div>
         <div class="col-auto p-0">
           <span>:</span>
         </div>
         <div class="col p-0">
-          <input type="text" [(ngModel)]="minutos" maxlength="2" [disabled]="!camposEditaveis">
+          <input type="text" [(ngModel)]="minutos" maxlength="2" [readonly]="!camposEditaveis">
         </div>
         <div class="col-auto p-0">
           <span>:</span>
         </div>
         <div class="col p-0">
-          <input type="text" [(ngModel)]="segundos" maxlength="2" [disabled]="!camposEditaveis">
+          <input type="text" [(ngModel)]="segundos" maxlength="2" [readonly]="!camposEditaveis">
         </div>
       </div>
     </div>
